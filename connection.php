@@ -10,7 +10,7 @@ try {
     $database = new mysqli($db_host, $db_user, $db_pass, $db_name);
     $database->set_charset("utf8mb4");
 
-    echo "Database connection successful.";
+    // echo "Database connection successful.";
 
 } catch (mysqli_sql_exception $e) {
     error_log("Database connection error: " . $e->getMessage());

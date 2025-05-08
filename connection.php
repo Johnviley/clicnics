@@ -1,7 +1,12 @@
 <?php
 
-    $database = new mysqli("192.185.48.158", "bisublar_clinic", "Cl1n1c2025@", "bisublar_clinic");
-    
+    $db_host = getenv("DB_HOST");
+    $db_user = getenv("DB_USER");
+    $db_pass = getenv("DB_PASS");
+    $db_name = getenv("DB_NAME");
+
+    $database = new mysqli($db_host, $db_user, $db_pass, $db_name);
+
     if ($database->connect_error) {
         die("Connection failed: " . $database->connect_error);
     }

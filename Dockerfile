@@ -1,14 +1,17 @@
-# Use the official PHP Apache image
-FROM php:8.2-apache
+# Use PHP 8.1 with Apache
+FROM php:8.1-apache
 
-# Enable Apache mod_rewrite (commonly needed for PHP apps)
+# Install mysqli
+RUN docker-php-ext-install mysqli
+
+# Enable mod_rewrite (optional for .htaccess or pretty URLs)
 RUN a2enmod rewrite
 
-# Copy project files into the Apache web directory
+# Copy your app into the Apache document root
 COPY . /var/www/html/
 
-# Set file permissions
+# Set permissions (optional)
 RUN chown -R www-data:www-data /var/www/html
 
-# Expose port 80 (standard HTTP port)
+# Expose web port
 EXPOSE 80

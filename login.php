@@ -15,12 +15,13 @@
 </head>
 <body>
     <?php
+ session_start();
+
 
     //learn from w3schools.com
     //Unset all the server side variables
 
-    session_start();
-
+   
     $_SESSION["user"]="";
     $_SESSION["usertype"]="";
     
